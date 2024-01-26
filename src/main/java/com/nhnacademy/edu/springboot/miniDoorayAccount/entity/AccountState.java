@@ -2,6 +2,8 @@ package com.nhnacademy.edu.springboot.miniDoorayAccount.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AccessLevel;
@@ -24,7 +26,8 @@ public class AccountState {
     private Integer accountStateId;
 
     @Column(name = "account_state_name")
-    private String accountStateName;
+    @Enumerated(EnumType.STRING)
+    private AccountStateName accountStateName;
 
 
 

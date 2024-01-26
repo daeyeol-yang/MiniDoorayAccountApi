@@ -4,7 +4,7 @@ Host: localhost:8080
 Content-Type: application/json
 
 {
-  "accountId": "user1",
+  "accountId": "user2",
   "accountPassword": "12345",
   "email": "user1@example.com",
   "name": "user1",
