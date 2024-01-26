@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum AccountStateName {
-    활성,비활성,휴면;
+    ACTIVE,INACTIVE,DORMANT
 
 
 }
