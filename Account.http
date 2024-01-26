@@ -1,0 +1,17 @@
+# POST Request to Create a New Account
+POST /accounts
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "accountId": "your_account_id1",
+  "accountPassword": "your_account_pw",
+  "email": "your_email@example.com",
+  "name": "Your Name",
+  "joinDate": "2024-01-25T15:50:12",
+  "lastLoginDate": "2024-01-25T15:50:12",
+  "accountStatus": {
+    "accountStateId": 1
+  }
+
+}

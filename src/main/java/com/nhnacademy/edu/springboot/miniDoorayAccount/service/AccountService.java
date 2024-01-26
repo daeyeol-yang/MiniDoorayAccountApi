@@ -8,4 +8,8 @@ import org.springframework.stereotype.Service;
 public interface AccountService {
 
     List<Account> getAccounts();
+
+    boolean matches(String id, String password);
+
+    Account createAccount(Account account);
 }

@@ -20,4 +20,16 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> getAccounts() {
         return accountRepository.findAll();
     }
+
+    @Override
+    public boolean matches(String id, String password){return accountRepository.existsByAccountIdAndAccountPassword(id,password);}
+
+    @Override
+    public Account createAccount(Account account) {
+        boolean isPresent = accountRepository.findById(account.getAccountId()).isPresent();
+        if(isPresent){
+            throw new IllegalStateException("already exist "+account.getAccountId());
+        }
+        return accountRepository.save(account);
+    }
 }
