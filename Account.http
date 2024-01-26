@@ -4,14 +4,14 @@ Host: localhost:8080
 Content-Type: application/json
 
 {
-  "accountId": "your_account_id1",
-  "accountPassword": "your_account_pw",
-  "email": "your_email@example.com",
-  "name": "Your Name",
+  "accountId": "user1",
+  "accountPassword": "12345",
+  "email": "user1@example.com",
+  "name": "user1",
   "joinDate": "2024-01-25T15:50:12",
   "lastLoginDate": "2024-01-25T15:50:12",
   "accountStatus": {
-    "accountStateId": 1
+    "accountStateId": 2
   }
 
 }

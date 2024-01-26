@@ -4,6 +4,7 @@ import com.nhnacademy.edu.springboot.miniDoorayAccount.entity.Account;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -16,6 +17,15 @@ public class AccountController {
 
     @PostMapping("/accounts")
     @ResponseStatus(HttpStatus.CREATED)
-    public Account createAccount(@RequestBody Account account){return accountService.createAccount(account);}
+    public ResponseEntity<String> createAccount(@RequestBody Account account) {
+       try {
+           accountService.createAccount(account);
+           return ResponseEntity.status(HttpStatus.CREATED).body("Success");
+       }catch (RuntimeException e){
+           return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+       }
+
+
+    }
 
 }
