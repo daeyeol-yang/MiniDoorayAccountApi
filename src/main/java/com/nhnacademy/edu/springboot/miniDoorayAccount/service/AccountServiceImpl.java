@@ -1,9 +1,9 @@
 package com.nhnacademy.edu.springboot.miniDoorayAccount.service;
 
+import com.nhnacademy.edu.springboot.miniDoorayAccount.domain.IdAndNameOnly;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.entity.Account;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.repository.AccountRepository;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -36,5 +36,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account getAccount(String id) {
         return accountRepository.findById(id).orElseThrow();
+    }
+
+    @Override
+    public List<IdAndNameOnly> getIdAndNames() {
+        return accountRepository.findAllIdAndNameOnly();
     }
 }

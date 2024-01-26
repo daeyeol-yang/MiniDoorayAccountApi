@@ -8,5 +8,4 @@ import lombok.Getter;
 public enum AccountStateName {
     ACTIVE,INACTIVE,DORMANT
 
-
 }

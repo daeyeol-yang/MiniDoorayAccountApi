@@ -28,3 +28,11 @@ Content-Type: application/json
 "pwd": "12345"
 
 }
+
+
+###
+
+# Get Id and Name List
+GET /names
+Host: localhost:8080
+Content-Type: application/json
