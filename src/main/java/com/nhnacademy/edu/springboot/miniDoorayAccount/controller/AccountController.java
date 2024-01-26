@@ -25,7 +25,7 @@ public class AccountController {
            return ResponseEntity.status(HttpStatus.CREATED).body("Success");
        }catch (RuntimeException e){
            log.info(e.getMessage());
-           return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+           return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
        }
 
 
