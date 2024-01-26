@@ -1,5 +1,6 @@
 package com.nhnacademy.edu.springboot.miniDoorayAccount.controller;
 
+import com.nhnacademy.edu.springboot.miniDoorayAccount.entity.Account;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.login.LoginRequest;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.service.AccountService;
 import javax.servlet.http.HttpServletRequest;
@@ -19,14 +20,10 @@ public class LoginController {
     private final AccountService accountService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> doLogin(@RequestBody LoginRequest loginRequest,
-                                          HttpServletRequest request) {
-        HttpSession session = request.getSession(true);
+    public ResponseEntity<Account> doLogin(@RequestBody LoginRequest loginRequest) {
         if (accountService.matches(loginRequest.getId(), loginRequest.getPwd())) {
-            session.setAttribute("memberId", loginRequest.getId());
-            return ResponseEntity.status(HttpStatus.OK).body("redirect:/welcome");
+            return ResponseEntity.status(HttpStatus.OK).body(accountService.getAccount(loginRequest.getId()));
         }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("redirect:/login");
-        //TODO : 경로지정하기
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 }

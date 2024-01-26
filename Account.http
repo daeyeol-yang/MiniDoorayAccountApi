@@ -15,3 +15,15 @@ Content-Type: application/json
   }
 
 }
+
+###
+
+POST /login
+Host: localhost:8080
+Content-Type: application/json
+
+{
+"id": "admin",
+"pwd": "12345"
+
+}
