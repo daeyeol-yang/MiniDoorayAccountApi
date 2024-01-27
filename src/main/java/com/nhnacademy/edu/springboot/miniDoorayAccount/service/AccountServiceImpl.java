@@ -4,6 +4,7 @@ import com.nhnacademy.edu.springboot.miniDoorayAccount.domain.IdAndNameOnly;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.entity.Account;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.repository.AccountRepository;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -36,6 +37,13 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account getAccount(String id) {
         return accountRepository.findById(id).orElseThrow();
+    }
+
+    @Override
+    public List<Account> getAccountByAccountIds(List<String> accountIds) {
+        return accountIds.stream()
+                .map(accountId -> getAccount(accountId))
+                .collect(Collectors.toList());
     }
 
     @Override
