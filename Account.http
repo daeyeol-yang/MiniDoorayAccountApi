@@ -36,3 +36,25 @@ Content-Type: application/json
 GET /names
 Host: localhost:8080
 Content-Type: application/json
+
+###
+POST /projectMember
+Host: localhost:8080
+Accept:application/json
+
+Content-Type: application/json
+{
+  "accountIds": ["1", "2", "3", "4"]
+}
+
+###
+GET /projectMember?accountIds=1&accountIds=2&accountIds=3&accountIds=4
+Host: localhost:8080
+Accept:application/json
+Content-Type: application/json
+
+###
+# GET 요청 테스트: projectMember 엔드포인트에 accountIds를 쿼리 매개변수로 전달
+GET http://localhost:8080/projectMember?accountIds=1&accountIds=2&accountIds=3&accountIds=4
+Content-Type: application/json
+Accept:application/json

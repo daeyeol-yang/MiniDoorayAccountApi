@@ -1,5 +1,6 @@
 package com.nhnacademy.edu.springboot.miniDoorayAccount.controller;
 
+import com.nhnacademy.edu.springboot.miniDoorayAccount.domain.AccountOnlyId;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.domain.IdAndNameOnly;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.entity.Account;
 import com.nhnacademy.edu.springboot.miniDoorayAccount.service.AccountService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,11 +44,9 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.OK).body(accountService.getIdAndNames());
     }
 
-    @GetMapping("/projectMember/")
-    public List<Account> getProjectAccount(@RequestBody List<String> accountIds){
-        List<Account> accountList = accountService.getAccountByAccountIds(accountIds);
-
-        return accountList;
+    @GetMapping("/projectMember")
+    public ResponseEntity< List<Account>> getProjectAccount(@RequestParam List<String> accountIds){
+        return ResponseEntity.status(HttpStatus.OK).body(accountService.getAccountByAccountIds(accountIds));
 
     }
 
