@@ -8,5 +8,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AccountOnlyId {
-    private List<String> accountIds;
+    private String accountIds;
 }

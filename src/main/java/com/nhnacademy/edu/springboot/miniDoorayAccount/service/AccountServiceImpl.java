@@ -42,7 +42,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<Account> getAccountByAccountIds(List<String> accountIds) {
         return accountIds.stream()
-                .map(accountId -> getAccount(accountId))
+                .map(this::getAccount)
                 .collect(Collectors.toList());
     }
 
